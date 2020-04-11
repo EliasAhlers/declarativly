@@ -4,10 +4,8 @@ export class Container extends Widget {
 
     constructor(private child: Widget) {
         super();
-    }
-
-    public renderHTML(): string {
-        return '<div>' + this.child.renderHTML() + '</div>';
+        this.element = document.createElement('div');
+        this.element.appendChild(child.render());
     }
 
 }

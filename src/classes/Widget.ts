@@ -1,10 +1,14 @@
 
 export class Widget {
 
-    constructor() {}
+    protected element: HTMLElement;
 
-    public renderHTML(): string {
-        return '';
+    constructor() {
+        this.element = document.createElement('div');
+    }
+
+    public render(): HTMLElement {
+        return this.element;
     }
 
 }

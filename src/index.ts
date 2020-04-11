@@ -12,11 +12,7 @@ export class Declarativly {
     public static init(element: HTMLElement, rootWidget: Widget): void {
         this.rootWidget = rootWidget;
         this.element = element;
-        this.element.innerHTML = this.rootWidget.renderHTML();
-    }
-
-    public static refresh(): void {
-        this.element.innerHTML = this.rootWidget.renderHTML();
+        this.element.appendChild(this.rootWidget.render());
     }
 
 }
