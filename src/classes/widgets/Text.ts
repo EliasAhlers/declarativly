@@ -2,7 +2,7 @@ import { Widget } from "../Widget";
 
 export class Text extends Widget {
 
-    element: HTMLParagraphElement;
+    protected element: HTMLParagraphElement;
     
     constructor(private text: string) {
         super();

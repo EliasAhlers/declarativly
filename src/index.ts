@@ -3,6 +3,7 @@ import { Widget } from "./classes/Widget";
 export { Widget } from "./classes/Widget";
 export { Text } from "./classes/widgets/Text";
 export { Container } from "./classes/widgets/Container";
+export { Button } from "./classes/widgets/Button";
 
 export class Declarativly {
 
