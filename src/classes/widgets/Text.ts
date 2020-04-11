@@ -7,7 +7,12 @@ export class Text extends Widget {
     constructor(private text: string) {
         super();
         this.element = document.createElement('p');
-        this.element.textContent = text;
+        this.widgetState['text'] = this.text;
+        this.stateUpdated();
+    }
+
+    stateUpdated() {
+        this.element.textContent = this.widgetState['text'];
     }
 
 }
