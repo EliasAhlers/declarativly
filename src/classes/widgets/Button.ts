@@ -16,5 +16,12 @@ export class Button extends Widget {
         this.element.appendChild(this.child.render());
         return this.element;
     }
+
+    public reRender(widget: Button): void {
+        this.child.reRender(widget.child);
+        if(widget.widgetState != this.widgetState)
+            this.widgetState = widget.widgetState;
+        this.stateUpdated();
+    }
     
 }

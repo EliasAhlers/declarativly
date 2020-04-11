@@ -25,13 +25,11 @@ export class Declarativly {
     }
 
     private static computeRootWidget(): void {
-        this.rootWidget = this.rootWidgetFunction(this.state);
+        this.rootWidget = this.rootWidgetFunction(this.state, this.updateState);
     }
 
-    public static reRender(): void {
-        this.element.innerHTML = '';
-        this.computeRootWidget();
-        this.element.appendChild(this.rootWidget.render());
+    public static reRender(): void {     
+        this.rootWidget.reRender(this.rootWidgetFunction(this.state));
     }
 
 }
