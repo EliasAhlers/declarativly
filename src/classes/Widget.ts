@@ -1,8 +1,10 @@
 
 export class Widget {
 
+    constructor() {}
+
     public renderHTML(): string {
-        return '<p>Test</p>';
+        return '';
     }
 
 }

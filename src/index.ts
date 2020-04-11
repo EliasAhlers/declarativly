@@ -1,11 +1,22 @@
 import { Widget } from "./classes/Widget";
 
 export { Widget } from "./classes/Widget";
+export { Text } from "./classes/widgets/Text";
+export { Container } from "./classes/widgets/Container";
 
 export class Declarativly {
 
+    private static rootWidget: Widget;
+    private static element: HTMLElement;
+
     public static init(element: HTMLElement, rootWidget: Widget): void {
-        element.innerHTML = rootWidget.renderHTML();
+        this.rootWidget = rootWidget;
+        this.element = element;
+        this.element.innerHTML = this.rootWidget.renderHTML();
+    }
+
+    public static refresh(): void {
+        this.element.innerHTML = this.rootWidget.renderHTML();
     }
 
 }
