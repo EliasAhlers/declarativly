@@ -11,7 +11,16 @@ export class DivElement extends Widget {
     }
 
     public getNode(): VirtualNode {
-        this.node.children = this.children.map((child: Widget) => child.getNode());
+        this.node.children = [];
+        this.children.forEach((child: Widget) => {
+            if(Array.isArray(child)) {
+                child.forEach((childChild: Widget) => {
+                    this.node.children.push(childChild.getNode());
+                });
+            } else {
+                this.node.children.push(child.getNode());
+            }
+        });
         return this.node;
     }
 
