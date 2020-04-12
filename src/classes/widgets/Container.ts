@@ -1,27 +1,19 @@
-import { Widget, State } from "../Widget";
+import { Widget } from "../Widget";
+import { VirtualNode } from "../VirtualDOM";
 
 export class Container extends Widget {
 
-    protected element: HTMLDivElement;
+    private child: Widget;
 
-    constructor(child: Widget) {
+    constructor({child}: { child: Widget }) {
         super();
-        this.widgetState['child'] = child;
-        this.element = document.createElement('div');
-        this.element.appendChild(child.render());
+        this.node.type = 'div';
+        this.child = child;
     }
 
-    public stateUpdated(): void {
-        this.element.innerHTML = '';
-        this.element.appendChild(this.widgetState['child'].render());
-    }
-
-    public reRender(widget: Container): void {
-        if(widget.widgetState != this.widgetState) {
-            this.widgetState = widget.widgetState;
-            this.stateUpdated();
-        }
-        this.widgetState['child'].reRender(widget.widgetState['child']);
+    public getNode(): VirtualNode {
+        this.node.children = [this.child.getNode()];
+        return this.node;
     }
 
 }
