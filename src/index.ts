@@ -1,6 +1,10 @@
 // import { Widget, State } from "./classes/Widget";
 
-import { VirtualDOM, Node } from "./classes/VirtualDOM";
+import { VirtualDOM } from "./classes/VirtualDOM";
+
+
+export * from "./classes/widgets/Widgets";
+export * from "./classes/htmlElements/HTMLElements";
 
 // export * from "./classes/widgets/Widgets";
 // export { State } from './classes/Widget';
@@ -23,22 +27,24 @@ export class Declarativly {
     //     this.element.appendChild(this.rootWidget.render());
     // }
 
-    public static init(rootElement: HTMLElement): void {
+    public static init(rootElement: HTMLElement, rootWidgetFunction: Function): void {
 
-        let start: Node = { type: 'div', props: [], children: [
-            { type: 'p', props: [], children: [ 'test' ] }
-        ]};
-        let end: Node = { type: 'div', props: [], children: [
-            { type: 'p', props: [], children: [ 'It works!' ] }
-        ]};
+        VirtualDOM.updateDOM(rootElement, rootWidgetFunction().getNode());
+
+        // let start: VirtualNode = { type: 'div', props: [], children: [
+        //     { type: 'p', props: [], children: [ 'test' ] }
+        // ]};
+        // let end: VirtualNode = { type: 'div', props: [], children: [
+        //     { type: 'p', props: [], children: [ 'It works!' ] }
+        // ]};
 
         // VirtualDOM.updateElement(rootElement, start);
-        VirtualDOM.updateDOM(rootElement, start);
+        // VirtualDOM.updateDOM(rootElement, start);
 
-        setTimeout(()=> {
-            VirtualDOM.updateDOM(rootElement, end);
-            console.log('Update');
-        }, 5000);
+        // setTimeout(()=> {
+        //     VirtualDOM.updateDOM(rootElement, end);
+        //     console.log('Update');
+        // }, 5000);
     }
 
     // public static updateState(callback: Function): void {
