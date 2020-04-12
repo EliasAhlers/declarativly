@@ -8,7 +8,8 @@ export class Widget {
         this.node = {
             type: 'div',
             props: [],
-            children: []
+            children: [],
+            events: {}
         };
     }
 

@@ -2,6 +2,7 @@ export interface VirtualNode {
     type: string;
     props: Array<any>;
     children: Array<any>;
+    events: any;
 }
 
 export class VirtualDOM {
@@ -18,6 +19,13 @@ export class VirtualDOM {
             return document.createTextNode(node);
         }
         const element: HTMLElement = document.createElement(node.type);
+        if(node.events != {}) {
+            for(let event in node.events) {
+                element.addEventListener(event, (evt: Event) => {
+                    node.events[event](evt);
+                });
+            }
+        }
         node.children
             .map(VirtualDOM.createElement)
             .forEach((child: any) => {
