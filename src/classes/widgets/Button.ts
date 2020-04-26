@@ -9,7 +9,8 @@ export class Button extends Widget {
         super();
         this.node.type = 'button';
         this.child = child;
-        this.node.events['click'] = onClick;
+        this.node.props['onClick'] = onClick;
+        this.node.props['forceUpdate'] = true;
     }
 
     public getNode(): VirtualNode {

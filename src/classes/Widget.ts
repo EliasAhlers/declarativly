@@ -7,9 +7,8 @@ export class Widget {
     constructor() {
         this.node = {
             type: 'div',
-            props: [],
+            props: {},
             children: [],
-            events: {}
         };
     }
 
@@ -18,11 +17,7 @@ export class Widget {
     }
 
     public repeat(amount: number): Array<Widget> {
-        let arr: Array<Widget> = [];
-        for (let i = 0; i < amount; i++) {            
-            arr.push(this);
-        }
-        return arr;
+        return new Array(amount).fill(this);
     }
 
     public if(check: boolean): Array<Widget> {
