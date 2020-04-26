@@ -1,14 +1,26 @@
 import { VirtualNode } from "../VirtualDOM";
 import { Widget } from "../Widget";
 
+interface propsData {
+    [index: string]: any
+}
+
 export class HTMLWidget extends Widget {
 
     private children: Array<Widget>;
 
-    constructor(tag: string, { children }: { children: Array<Widget> }) {
+    constructor(tag: string, { children, props, style }: { children?: Array<Widget>, props?: propsData, style?: any }) {
         super();
         this.node.type = tag;
-        this.children = children;
+        this.node.props = props??{};
+        if(style) {
+            let styleString: string = '';
+            for(let key in style) {
+                styleString += key + ':' + style[key] + ';';
+            }
+            this.node.props['style'] = styleString;
+        }
+        this.children = children??[];
     }
 
     public getNode(): VirtualNode {
