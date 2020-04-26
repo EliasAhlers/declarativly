@@ -1,10 +1,8 @@
-// import { Widget, State } from "./classes/Widget";
-
 import { VirtualDOM } from "./classes/VirtualDOM";
 
 
 export * from "./classes/widgets/Widgets";
-export * from "./classes/htmlElements/HTMLElements";
+// export * from "./classes/htmlElements/HTMLElements";
 
 
 export interface State {

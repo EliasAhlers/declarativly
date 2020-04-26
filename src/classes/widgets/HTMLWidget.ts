@@ -1,12 +1,13 @@
-import { Widget } from "../Widget";
 import { VirtualNode } from "../VirtualDOM";
+import { Widget } from "../Widget";
 
-export class DivElement extends Widget {
+export class HTMLWidget extends Widget {
 
     private children: Array<Widget>;
 
-    constructor({ children }: { children: Array<Widget> }) {
+    constructor(tag: string, { children }: { children: Array<Widget> }) {
         super();
+        this.node.type = tag;
         this.children = children;
     }
 
@@ -18,7 +19,7 @@ export class DivElement extends Widget {
                     this.node.children.push(childChild.getNode());
                 });
             } else {
-                this.node.children.push(child.getNode());
+                    this.node.children.push(child.getNode());
             }
         });
         return this.node;
