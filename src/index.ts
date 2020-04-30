@@ -2,7 +2,6 @@ import { VirtualDOM } from "./classes/VirtualDOM";
 
 
 export * from "./classes/widgets/Widgets";
-// export * from "./classes/htmlElements/HTMLElements";
 
 
 export interface State {

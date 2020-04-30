@@ -1,8 +1,9 @@
 {
   "name": "declarativly",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "A flutter like web framework",
-  "main": "lib/index.js",
+  "main": "lib/index",
+  "typings": "lib/index",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
@@ -12,5 +13,9 @@
   "license": "MIT",
   "devDependencies": {
     "typescript": "^3.8.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ThatsEli/declarativly.git"
   }
 }
