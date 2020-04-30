@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "A flutter like web framework",
   "main": "lib/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
