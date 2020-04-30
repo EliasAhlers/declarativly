@@ -1,15 +1,23 @@
 import { VirtualNode } from "./VirtualDOM";
+import { PropsData } from "./widgets/HTMLWidget";
 
 export class Widget {
 
     protected node: VirtualNode;
 
-    constructor() {
+    constructor(tag: string = 'div', { children, props, style }: { children?: Array<Widget|Array<Widget>>, props?: PropsData, style?: any }) {
         this.node = {
-            type: 'div',
-            props: {},
-            children: [],
+            type: tag,
+            props: props??{},
+            children: children??[],
         };
+        if(style) {
+            let styleString: string = '';
+            for(let key in style) {
+                styleString += key + ':' + style[key] + ';';
+            }
+            this.node.props['style'] = styleString;
+        }
     }
 
     public getNode(): VirtualNode {

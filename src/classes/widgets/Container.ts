@@ -3,11 +3,8 @@ import { VirtualNode } from "../VirtualDOM";
 
 export class Container extends Widget {
 
-    private child: Widget;
-
-    constructor({child}: { child: Widget }) {
-        super();
-        this.node.type = 'div';
+    constructor(private child: Widget ) {
+        super('div', {});
         this.child = child;
     }
 
