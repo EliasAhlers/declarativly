@@ -1,9 +1,9 @@
 {
   "name": "declarativly",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A flutter like web framework",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "lib/index",
+  "typings": "lib/index",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
